@@ -13,15 +13,20 @@ let password = "123456";
 loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (!usernameValue.value && !passwordValue.value) {
-    alert("Enter Username and Password");
+    loginError.style.display = "block";
+    loginError.style.color = "red";
+    loginError.innerHTML = "❓ Enter Username and Password";
   } else if (
     usernameValue.value == "saifullah" &&
     passwordValue.value == "123456"
   ) {
     console.log("Login authorized!");
+    loginError.style.display = "none";
   } else {
     loginError.style.display = "block";
     loginError.style.color = "red";
-    loginError.innerHTML = "Wrong Username and Password!";
+    loginError.innerHTML = "❌ Wrong Username and Password!";
   }
+  usernameValue.value = "";
+  passwordValue.value = "";
 });
