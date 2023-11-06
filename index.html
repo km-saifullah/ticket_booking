@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- Tain Booking Start -->
+    <!-- Tain Booking Login Start -->
     <section id="ticketBook">
       <div class="container">
-        <h1 class="main_heading">Train Booking Center</h1>
+        <h1 class="main_heading"></h1>
         <div class="main_booking">
           <form action="">
             <div class="form_content">
@@ -38,9 +38,55 @@
             </div>
           </form>
         </div>
+        <div class="ticket_booking">
+          <form action="">
+            <div class="ticket_booking-form form_content">
+              <div class="chooseTrain_form-content">
+                <p class="input_label">Departure Station</p>
+                <input
+                  class="fromStation"
+                  type="text"
+                  placeholder="From Station"
+                />
+              </div>
+              <div class="chooseTrain_form-content">
+                <p class="input_label">Arrival Station</p>
+                <input class="toStation" type="text" placeholder="To Station" />
+              </div>
+              <div class="chooseTrain_form-content">
+                <p class="input_label">Journey Date</p>
+                <input class="date" type="date" placeholder="Pick a Date" />
+              </div>
+              <div class="chooseTrain_form-content">
+                <p class="input_label">Choose a Class</p>
+                <select name="" id="">
+                  <option value=""></option>
+                  <option value="">AC_B</option>
+                  <option value="">AC_S</option>
+                  <option value="">SNIGDHA</option>
+                  <option value="">F_BERTH</option>
+                  <option value="">F_SEAT</option>
+                  <option value="">F_CHAIR</option>
+                  <option value="">S_CHAIR</option>
+                  <option value="">SHULOV</option>
+                </select>
+              </div>
+              <div class="chooseTrain_form-content">
+                <p class="input_label">Choose Quantity</p>
+                <input
+                  class="quantity"
+                  type="text"
+                  placeholder="Enter quantity"
+                />
+              </div>
+              <button class="buyBtn">Choose Booking</button>
+              <p class="booking_error"></p>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
-    <!-- Tain Booking End -->
+    <!-- Tain Booking Login End -->
 
     <!-- JS File -->
     <script src="./js/script.js"></script>
