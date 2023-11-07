@@ -35,8 +35,8 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 20px 0;
-  height: 100vh;
+  padding: 2px 0;
+  height: 120vh;
 }
 .main_heading {
   color: #fff;
@@ -44,7 +44,7 @@ p {
   font-family: "Roboto", sans-serif;
   line-height: 120%;
   font-size: 45px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .main_booking {
   background-color: #fff;
@@ -103,4 +103,28 @@ p {
   font-size: 18px;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
+}
+.choose_train {
+  background-color: #fff;
+  margin: 0 auto;
+  width: 70%;
+  padding: 20px;
+}
+.choose_train-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.choose_train-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: rgb(182, 242, 187);
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all linear 0.4s;
+}
+.choose_train-item:hover {
+  background-color: rgb(154, 243, 161);
 }

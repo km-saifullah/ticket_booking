@@ -10,8 +10,9 @@ let fromStation = document.querySelector(".fromStation");
 let toStation = document.querySelector(".toStation");
 let date = document.querySelector(".date");
 let ticketQuantity = document.querySelector(".quantity");
-let chooseBtn = document.querySelector(".buyBtn");
+let chooseBtn = document.querySelector(".choose_booking");
 let bookingError = document.querySelector(".booking_error");
+let chooseTrain = document.querySelector(".choose_train");
 
 // main heading
 let showHeading = (heading) => {
@@ -81,6 +82,7 @@ let trainDetails = [
 displayElements(loginError, "none");
 displayElements(ticketBooking, "none");
 displayElements(bookingError, "none");
+displayElements(chooseTrain, "none");
 
 // username and password for login
 let username = "s";
@@ -103,7 +105,13 @@ loginBtn.addEventListener("click", (e) => {
     displayElements(ticketBooking, "block");
     chooseBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      buyTicket();
+      showHeading(`Choose Train`);
+      displayElements(ticketBooking, "none");
+      displayElements(chooseTrain, "block");
+      console.log("From", fromStation.value);
+      console.log("To", toStation.value);
+      console.log("Date", date.value);
+      console.log("quantity", ticketQuantity.value);
     });
   } else {
     displayElements(loginError, "block");
