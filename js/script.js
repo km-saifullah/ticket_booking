@@ -10,6 +10,7 @@ let fromStation = document.querySelector(".fromStation");
 let toStation = document.querySelector(".toStation");
 let date = document.querySelector(".date");
 let ticketQuantity = document.querySelector(".quantity");
+let trainClass = document.querySelector("#trainClass");
 let chooseBtn = document.querySelector(".choose_booking");
 let bookingError = document.querySelector(".booking_error");
 let chooseTrain = document.querySelector(".choose_train");
@@ -47,6 +48,7 @@ let trainDetails = [
     S_CHAIR: 345,
     SHOVAN: 285,
     SHULOV: 250,
+    availability: 10,
   },
   {
     trainId: Math.floor(Math.random() * 100) + 1,
@@ -61,6 +63,7 @@ let trainDetails = [
     S_CHAIR: 345,
     SHOVAN: 270,
     SHULOV: 220,
+    availability: 4,
   },
   {
     trainId: Math.floor(Math.random() * 100) + 1,
@@ -75,6 +78,7 @@ let trainDetails = [
     S_CHAIR: 350,
     SHOVAN: 300,
     SHULOV: 250,
+    availability: 22,
   },
 ];
 
@@ -87,6 +91,8 @@ displayElements(chooseTrain, "none");
 // username and password for login
 let username = "s";
 let password = "1";
+
+let bookingArray = [];
 
 showHeading(`Train Booking Center`);
 
@@ -105,13 +111,38 @@ loginBtn.addEventListener("click", (e) => {
     displayElements(ticketBooking, "block");
     chooseBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      showHeading(`Choose Train`);
-      displayElements(ticketBooking, "none");
-      displayElements(chooseTrain, "block");
-      console.log("From", fromStation.value);
-      console.log("To", toStation.value);
-      console.log("Date", date.value);
-      console.log("quantity", ticketQuantity.value);
+      if (
+        (!fromStation.value,
+        !toStation.value,
+        !date.value,
+        !ticketQuantity.value,
+        !trainClass.value)
+      ) {
+        displayElements(bookingError, "block");
+        bookingError.innerHTML = "🔴 Please Enter All Details";
+      } else {
+        bookingArray = [
+          fromStation.value,
+          toStation.value,
+          date.value,
+          trainClass.value,
+          ticketQuantity.value,
+        ];
+        if (
+          toStation.value == "chottogram" ||
+          toStation.value == "Chottogram" ||
+          toStation.value == "chittagong" ||
+          toStation.value == "Chittagong"
+        ) {
+          showHeading(`Choose Train`);
+          displayElements(bookingError, "none");
+          displayElements(ticketBooking, "none");
+          displayElements(chooseTrain, "block");
+        } else {
+          displayElements(bookingError, "block");
+          bookingError.innerHTML = "🚊 Train is not Available for This City";
+        }
+      }
     });
   } else {
     displayElements(loginError, "block");

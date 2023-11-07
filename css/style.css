@@ -35,7 +35,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 2px 0;
+  padding: 15px 0;
   height: 120vh;
 }
 .main_heading {
@@ -44,7 +44,7 @@ p {
   font-family: "Roboto", sans-serif;
   line-height: 120%;
   font-size: 45px;
-  margin-bottom: 8px;
+  margin-bottom: 30px;
 }
 .main_booking {
   background-color: #fff;
@@ -55,7 +55,7 @@ p {
 .form_content {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
   padding: 30px;
 }
 .form_content input {
@@ -103,6 +103,11 @@ p {
   font-size: 18px;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
+}
+.booking_error {
+  color: red;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
 }
 .choose_train {
   background-color: #fff;
