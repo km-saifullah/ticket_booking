@@ -92,6 +92,7 @@ p {
   outline: none;
   font-family: "Poppins", sans-serif;
   border: 1px solid #222;
+  padding: 5px 0;
 }
 .chooseTrain_form-content {
   display: flex;
