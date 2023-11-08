@@ -112,12 +112,16 @@ p {
 .choose_train {
   background-color: #fff;
   margin: 0 auto;
-  width: 70%;
+  width: 60%;
   padding: 20px;
+  border-radius: 8px;
 }
 .choose_train-wrapper {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 25px;
 }
 .choose_train-item {
@@ -127,9 +131,46 @@ p {
   background-color: rgb(182, 242, 187);
   padding: 20px;
   cursor: pointer;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   transition: all linear 0.4s;
 }
 .choose_train-item:hover {
   background-color: rgb(154, 243, 161);
+}
+.train_name {
+  font-size: 25px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  color: #222;
+}
+.city_name {
+  color: #0f0f0f;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+.title-color{
+  color: #fff;
+}
+.ticket_price {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.price {
+  font-weight: 700;
+}
+.ticket_available {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+.avail_ticket {
+  font-weight: 700;
+}
+.red_bg {
+  background-color: rgb(224, 59, 59);
+  color: #fff;
+  pointer-events: none;
+  opacity: 0.6;
 }
