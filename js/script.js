@@ -96,8 +96,8 @@ displayElements(bookingError, "none");
 displayElements(chooseTrain, "none");
 
 // username and password for login
-let username = "s";
-let password = "1";
+let username = "saifullah";
+let password = "123456";
 
 let bookingArray = [];
 
@@ -110,7 +110,7 @@ loginBtn.addEventListener("click", (e) => {
   if (!usernameValue.value && !passwordValue.value) {
     displayElements(loginError, "block");
     loginError.innerHTML = "❓ Enter Username and Password";
-  } else if (usernameValue.value == "s" && passwordValue.value == "1") {
+  } else if (usernameValue.value == "saifullah" && passwordValue.value == "123456") {
     showHeading(`Ticket Booking Preference`);
     console.log("Login authorized!");
     displayElements(loginError, "none");
