@@ -26,24 +26,16 @@ let displayElements = (element, display) => {
   element.style.display = `${display}`;
 };
 
-// buy ticket functionality
-let buyTicket = () => {
-  console.log("From", fromStation.value);
-  console.log("To", toStation.value);
-  console.log("Date", date.value);
-  console.log("quantity", ticketQuantity.value);
-};
-
 // train details object
 let trainDetails = [
   {
-    trainId: Math.floor(Math.random() * 100) + 1,
+    trainId: 1,
     trainName: "Chattala Express",
     city: "Chottogram",
     price: {
       AC_B: 1179,
       AC_S: 1000,
-      SINGDHA: 656,
+      SNIGDHA: 656,
       F_BERTH: 788,
       F_SEAT: 529,
       F_CHAIR: 850,
@@ -54,13 +46,13 @@ let trainDetails = [
     availability: 12,
   },
   {
-    trainId: Math.floor(Math.random() * 100) + 1,
+    trainId: 2,
     trainName: "Mohanagar Express",
     city: "Chottogram",
     price: {
       AC_B: 1100,
       AC_S: 900,
-      SINGDHA: 656,
+      SNIGDHA: 656,
       F_BERTH: 788,
       F_SEAT: 520,
       F_CHAIR: 820,
@@ -71,13 +63,13 @@ let trainDetails = [
     availability: 0,
   },
   {
-    trainId: Math.floor(Math.random() * 100) + 1,
+    trainId: 3,
     trainName: "Turna Express",
     city: "Chottogram",
     price: {
       AC_B: 1200,
       AC_S: 1100,
-      SINGDHA: 680,
+      SNIGDHA: 680,
       F_BERTH: 800,
       F_SEAT: 560,
       F_CHAIR: 850,
@@ -96,8 +88,8 @@ displayElements(bookingError, "none");
 displayElements(chooseTrain, "none");
 
 // username and password for login
-let username = "saifullah";
-let password = "123456";
+let username = "s";
+let password = "1";
 
 let bookingArray = [];
 
@@ -110,20 +102,20 @@ loginBtn.addEventListener("click", (e) => {
   if (!usernameValue.value && !passwordValue.value) {
     displayElements(loginError, "block");
     loginError.innerHTML = "❓ Enter Username and Password";
-  } else if (usernameValue.value == "saifullah" && passwordValue.value == "123456") {
+  } else if (usernameValue.value == "s" && passwordValue.value == "1") {
     showHeading(`Ticket Booking Preference`);
-    console.log("Login authorized!");
     displayElements(loginError, "none");
     displayElements(mainLogin, "none");
     displayElements(ticketBooking, "block");
     chooseBtn.addEventListener("click", (e) => {
+      // Ticket Booking Information Form
       e.preventDefault();
       if (
         (!fromStation.value,
         !toStation.value,
         !date.value,
-        !ticketQuantity.value,
-        !trainClass.value)
+        !trainClass.value,
+        !ticketQuantity.value)
       ) {
         displayElements(bookingError, "block");
         bookingError.innerHTML = "🔴 Please Enter All Details";
@@ -136,10 +128,10 @@ loginBtn.addEventListener("click", (e) => {
           ticketQuantity.value,
         ];
         if (
-          toStation.value == "chottogram" ||
-          toStation.value == "Chottogram" ||
-          toStation.value == "chittagong" ||
-          toStation.value == "Chittagong"
+          toStation.value == "ctg"
+          // toStation.value == "Chottogram" ||
+          // toStation.value == "chittagong" ||
+          // toStation.value == "Chittagong"
         ) {
           showHeading(`Choose Train`);
           displayElements(bookingError, "none");
@@ -164,26 +156,26 @@ loginBtn.addEventListener("click", (e) => {
 let chooseTrainDetail = () => {
   trainDetails.map(({ trainName, city, price, availability }) => {
     let priceKeys = Object.keys(price);
-    console.log(priceKeys, typeof priceKeys);
     let priceValues = Object.values(price);
-    console.log(priceValues);
     let trainClassValue = String(trainClass.value);
-    console.log(trainClassValue);
     let keyIndex = priceKeys.indexOf(trainClassValue);
-    console.log(keyIndex);
+
     let div = document.createElement("div");
     let h3 = document.createElement("h3");
-    h3.classList.add("train_name");
     let h4 = document.createElement("h4");
-    h4.classList.add("city_name");
     let ticketPrice = document.createElement("p");
     let ticketAvailability = document.createElement("p");
-    h3.innerHTML = `${trainName}`;
-    h4.innerHTML = `${city}`;
+
+    h3.classList.add("train_name");
+    h4.classList.add("city_name");
     ticketPrice.classList.add("ticket_price");
     ticketAvailability.classList.add("ticket_available");
+
+    h3.innerHTML = `${trainName}`;
+    h4.innerHTML = `${city}`;
     ticketPrice.innerHTML = `Ticket Price: <span class="price">${priceValues[keyIndex]}</span> BDT`;
     ticketAvailability.innerHTML = `Seat Available: <span class="avail_ticket">${availability}</span>`;
+
     if (availability == 0) {
       div.classList.add("choose_train-item");
       div.classList.add("red_bg");
@@ -197,5 +189,17 @@ let chooseTrainDetail = () => {
     div.appendChild(ticketPrice);
     div.appendChild(ticketAvailability);
     trainWrapper.appendChild(div);
+
+    // Choose Train
+    let selectTrain = document.querySelectorAll(".choose_train-item");
+    let selectTrainArr = Array.from(selectTrain);
+    selectTrainArr.map((train) => {
+      train.addEventListener("click", () => {
+        let trainName = h3.innerHTML;
+        let cityName = h4.innerHTML;
+        console.log(trainName, cityName);
+        console.log(train);
+      });
+    });
   });
 };

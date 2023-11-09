@@ -44,7 +44,8 @@ p {
   font-family: "Roboto", sans-serif;
   line-height: 120%;
   font-size: 45px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  margin-top: 20px;
 }
 .main_booking {
   background-color: #fff;
@@ -115,6 +116,7 @@ p {
   width: 60%;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 2px -1px 30px -4px rgba(255, 255, 255, 0.67);
 }
 .choose_train-wrapper {
   display: flex;
@@ -149,7 +151,7 @@ p {
   font-family: "Poppins", sans-serif;
   font-size: 20px;
 }
-.title-color{
+.title-color {
   color: #fff;
 }
 .ticket_price {
@@ -173,4 +175,17 @@ p {
   color: #fff;
   pointer-events: none;
   opacity: 0.6;
+}
+.select_train {
+  cursor: pointer;
+  height: 30px;
+  background-color: blueviolet;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+.review_ticket {
 }
